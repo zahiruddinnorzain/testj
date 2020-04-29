@@ -12,15 +12,12 @@ pipeline{
 		}
 		stage ('Testing Stage') {
 			steps {
-					sh 'cd /home/zebo/code/temp/testj/'
-			}
-			steps {
-				sh 'python3 main.py'
+				sh 'python3 testj/main.py'
 			}
 		}
 		stage ('Deployment Stage') {
 			steps {
-					sh 'touch 2.txt'
+					sh 'touch testj/2.txt'
 			}
 		}
 	}
