@@ -4,23 +4,19 @@ pipeline{
 	stages {
 		stage ('Compile Stage') {
 			steps {
-				withMaven(maven: 'maven_3_6_3'){
-					sh 'python3 main.py'
-				}
+					sh 'cd /home/zebo/code/temp/',
+					sh 'git clone https://github.com/zahiruddinnorzain/testj.git'
 			}
 		}
 		stage ('Testing Stage') {
 			steps {
-				withMaven(maven: 'maven_3_6_3'){
-					sh 'touch 1.txt'
-				}
+					sh 'cd /home/zebo/code/temp/testj/'
+					sh 'python3 main.py'
 			}
 		}
 		stage ('Deployment Stage') {
 			steps {
-				withMaven(maven: 'maven_3_6_3'){
 					sh 'touch 2.txt'
-				}
 			}
 		}
 	}
